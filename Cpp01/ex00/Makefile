@@ -10,10 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook 
+NAME = ex01 
 
-SOURCE = Contact.cpp\
-	PhoneBook.cpp\
+SOURCE = main.cpp\
+	newZombie.cpp\
+	randomChump.cpp\
+	Zombie.cpp\
+
 
 
 OBJECT = ${SOURCE:.cpp=.o}
