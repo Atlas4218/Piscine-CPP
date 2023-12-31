@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rastie <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:14:51 by rastie            #+#    #+#             */
-/*   Updated: 2023/10/17 19:04:59 by rastie           ###   ########.fr       */
+/*   Updated: 2023/12/31 13:58:53 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <string>
 #include <iostream>
 #include "Contact.hpp"

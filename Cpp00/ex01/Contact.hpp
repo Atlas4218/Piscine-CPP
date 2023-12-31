@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rastie <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:09:14 by rastie            #+#    #+#             */
-/*   Updated: 2023/10/17 19:14:20 by rastie           ###   ########.fr       */
+/*   Updated: 2023/12/31 13:59:02 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 class	Contact

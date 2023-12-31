@@ -1,4 +1,4 @@
-NAME = ex01 
+NAME = ex03
 
 SOURCE = main.cpp\
 	HumanA.cpp\
