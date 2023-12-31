@@ -15,6 +15,7 @@ Zombie::annouce(void)
     std::cout << this->_name <<  ": BraiiiiiiinnnzzzZ..." << std::endl;
 
 }
+
 Zombie::setName(std::string name)
 {
 	this->_name = name;
