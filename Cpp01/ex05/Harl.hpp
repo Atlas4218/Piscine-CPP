@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 14:10:24 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/03 13:03:47 by rastie           ###   ########.fr       */
+/*   Created: 2024/01/03 20:16:01 by rastie            #+#    #+#             */
+/*   Updated: 2024/01/03 20:27:22 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include <iostream>
+#include <string>
 
-Weapon::Weapon(std::string type): _type(type)
+class Harl
 {
-    std::cout << "Weapon constructor called" << std::endl;
-}
-
-Weapon::~Weapon()
-{
-        std::cout << "Weapon destructor called" << std::endl;
-}
-
-std::string &Weapon::getType(void)
-{
-    return (this->_type);
-}
-
-void Weapon::setType(std::string type)
-{
-    this->_type = type;
-}
+private:
+    void debug(void);
+    void info(void);
+    void warning(void);
+    void error(void);
+public:
+    Harl(void);
+    ~Harl();
+    void complain(std::string level);
+};

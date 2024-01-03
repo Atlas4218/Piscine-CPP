@@ -44,28 +44,28 @@ void	PhoneBook::add_contact(void)
 
 	while (!fname[0])
 	{
-		std::cout << "First name :" << std::endl;
-		std::getline(std::cin, fname);
+		std::cout << "First name :";
+		std::cin >> fname;
 	}
 	while (!lname[0])
 	{
 		std::cout << "Last name :";
-		std::getline(std::cin, lname);
+		std::cin >> lname;
 	}
 	while (!nname[0])
 	{
 		std::cout << "Nickname :";
-		std::getline(std::cin, nname);
+		std::cin >> nname;
 	}
-	while (!number[0] && !num_valid(number))
+	while (!number[0] || !num_valid(number))
 	{
 		std::cout << "Phone number :";
-		std::getline(std::cin, number);
+		std::cin >> number;
 	}
 	while (!secret[0])
 	{
 		std::cout << "Secret :";
-		std::getline(std::cin, secret);
+		std::cin >> secret;
 	}
 
 	this->list[this->index_older % 8].setFirstName(fname);
@@ -78,25 +78,26 @@ void	PhoneBook::add_contact(void)
 
 void	PhoneBook::print_content(void)
 {
+	std::cout << "No|Prenom   |Nom      |Phone Number" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		std::string fname = "|" + this->list[i].getFirstName();
 		fname.resize(10, ' ');
 		if (fname[9] && fname[9] != ' ')
-			fname.replace(9, 1, 1, '.');
-		std::string lname = "|" + this->list[i].getFirstName();
+			fname.replace(10, 1, 1, '.');
+		std::string lname = "|" + this->list[i].getLastName();
 		lname.resize(10, ' ');
 		if (lname[9] && lname[9] != ' ')
-			lname.replace(9, 1, 1, '.');
+			lname.replace(10, 1, 1, '.');
 		std::string nname = "|" + this->list[i].getNickname();
 		nname.resize(10, ' ');
 		if (nname[9] && nname[9] != ' ')
-			nname.replace(9, 1, 1, '.');
+			nname.replace(10, 1, 1, '.');
 		std::string num = "|" + this->list[i].getPhoneNumber();
 		num.resize(10, ' ');
 		if (num[9] && num[9] != ' ')
-			num.replace(9, 1, 1, '.');
-		std::cout << i + 1;
+			num.replace(10, 1, 1, '.');
+		std::cout << i + 1 << " ";
 		std::cout << std::left << std::setfill(' ') << std::setw(10);
 		std::cout << fname << lname << num << std::endl;
 	}
@@ -121,7 +122,7 @@ void	PhoneBook::search(void)
 	{
 		std::cout << "Enter index :";
 		std::cin >> entry;
-		std::istringstream ( entry ) >> index;
+		std::istringstream(entry) >> index;
 	}
 	this->print_contact(index - 1);
 }
@@ -133,8 +134,9 @@ int	main()
 
 	while (1)
 	{
+		cmd = "";
 		std::cout << "CMDS:\nADD, SEARCH, EXIT" << std::endl;
-		std::getline(std::cin, cmd);
+		std::cin >> cmd;
 		if (!cmd.compare("EXIT"))
 			break ;
 		if (!cmd.compare("ADD"))
@@ -142,5 +144,6 @@ int	main()
 		if (!cmd.compare("SEARCH"))
 			phonebook.search();
 	}
+	return (0);
 }
 

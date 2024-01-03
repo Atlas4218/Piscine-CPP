@@ -1,0 +1,31 @@
+replace = ex04
+
+SOURCE = main.cpp\
+
+
+
+
+OBJECT = ${SOURCE:.cpp=.o}
+
+CXXFLAGS = -g3 -std=c++98 -Wall -Wextra -Werror
+RM = rm -f
+CXX = c++
+
+${BIN}/%.o : ${SRC}/%.cpp 
+	mkdir -p ${BIN};\
+	${CXX} ${CXXFLAGS} -c $< -o $@
+
+all:	${replace}
+
+${replace}: ${OBJECT}
+		${CXX} -o ${replace} ${OBJECT};
+
+clean:
+	${RM} ${OBJECT}
+
+fclean:	clean
+		${RM} ${replace};\
+
+re:	fclean all
+
+.PHONY: all clean fclean re

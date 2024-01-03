@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:14:51 by rastie            #+#    #+#             */
-/*   Updated: 2023/12/31 13:58:53 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/01 18:36:12 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ std::string Contact::getLastName()
 }
 std::string Contact::getNickname()
 {
-	return (this->last_name);
+	return (this->nickname);
 }
 std::string Contact::getPhoneNumber()
 {
