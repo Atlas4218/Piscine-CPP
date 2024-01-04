@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:43:10 by rastie            #+#    #+#             */
-/*   Updated: 2023/12/31 13:59:08 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:00:43 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,27 @@ void	PhoneBook::add_contact(void)
 	while (!fname[0])
 	{
 		std::cout << "First name :";
-		std::cin >> fname;
+		std::getline(std::cin, fname);
 	}
 	while (!lname[0])
 	{
 		std::cout << "Last name :";
-		std::cin >> lname;
+		std::getline(std::cin, lname);
 	}
 	while (!nname[0])
 	{
 		std::cout << "Nickname :";
-		std::cin >> nname;
+		std::getline(std::cin, nname);
 	}
 	while (!number[0] || !num_valid(number))
 	{
 		std::cout << "Phone number :";
-		std::cin >> number;
+		std::getline(std::cin, number);
 	}
 	while (!secret[0])
 	{
 		std::cout << "Secret :";
-		std::cin >> secret;
+		std::getline(std::cin, secret);
 	}
 
 	this->list[this->index_older % 8].setFirstName(fname);
@@ -78,28 +78,27 @@ void	PhoneBook::add_contact(void)
 
 void	PhoneBook::print_content(void)
 {
-	std::cout << "No|Prenom   |Nom      |Phone Number" << std::endl;
+	std::cout << "     Index|    Prenom|       Nom| Phone Num" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
-		std::string fname = "|" + this->list[i].getFirstName();
-		fname.resize(10, ' ');
-		if (fname[9] && fname[9] != ' ')
-			fname.replace(10, 1, 1, '.');
-		std::string lname = "|" + this->list[i].getLastName();
-		lname.resize(10, ' ');
-		if (lname[9] && lname[9] != ' ')
-			lname.replace(10, 1, 1, '.');
-		std::string nname = "|" + this->list[i].getNickname();
-		nname.resize(10, ' ');
-		if (nname[9] && nname[9] != ' ')
-			nname.replace(10, 1, 1, '.');
-		std::string num = "|" + this->list[i].getPhoneNumber();
-		num.resize(10, ' ');
-		if (num[9] && num[9] != ' ')
-			num.replace(10, 1, 1, '.');
-		std::cout << i + 1 << " ";
-		std::cout << std::left << std::setfill(' ') << std::setw(10);
-		std::cout << fname << lname << num << std::endl;
+		std::string fname = this->list[i].getFirstName() +  "|";
+		fname.resize(11, ' ');
+		if (fname[10] && fname[10] != ' ')
+			fname.replace(11, 1, 1, '.');
+		std::string lname = this->list[i].getLastName() +  "|";
+		lname.resize(11, ' ');
+		if (lname[10] && lname[10] != ' ')
+			lname.replace(11, 1, 1, '.');
+		std::string nname = this->list[i].getNickname() +  "|";
+		nname.resize(11, ' ');
+		if (nname[10] && nname[10] != ' ')
+			nname.replace(11, 1, 1, '.');
+		std::string num = this->list[i].getPhoneNumber();
+		num.resize(11, ' ');
+		if (num[10] && num[10] != ' ')
+			num.replace(11, 1, 1, '.');
+		std::cout << std::setfill(' ') << std::setw(11);
+		std::cout << i + 1 << fname << lname << num << std::endl;
 	}
 }
 
@@ -136,7 +135,7 @@ int	main()
 	{
 		cmd = "";
 		std::cout << "CMDS:\nADD, SEARCH, EXIT" << std::endl;
-		std::cin >> cmd;
+		std::getline(std::cin, cmd);
 		if (!cmd.compare("EXIT"))
 			break ;
 		if (!cmd.compare("ADD"))
