@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 14:01:18 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/07 16:32:44 by rastie           ###   ########.fr       */
+/*   Created: 2024/01/03 21:33:21 by rastie            #+#    #+#             */
+/*   Updated: 2024/01/07 17:06:37 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-Zombie::Zombie(void)
+class Fixed
 {
-	std::cout << "Zombie constructor called" << std::endl;
-}
+private:
+    int _value;
+    static const int _nbits = 8;
+public:
+    Fixed(void);
+    Fixed(const Fixed &fixed);
+    Fixed & operator=(Fixed const & rhs);
+    ~Fixed();
 
-Zombie::~Zombie()
-{
-    	std::cout << "Zombie " << this->_name << " destructor called" << std::endl;
-}
-
-void Zombie::announce(void)
-{
-    std::cout << this->_name <<  ": BraiiiiiiinnnzzzZ..." << std::endl;
-
-}
-void Zombie::setName(std::string name)
-{
-	this->_name = name;
-}
+    void setRawBits(int const var);
+    int getRawBits(void) const;
+};

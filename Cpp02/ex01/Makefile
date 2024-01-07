@@ -6,15 +6,15 @@
 #    By: rastie <rastie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 17:56:03 by rastie            #+#    #+#              #
-#    Updated: 2024/01/05 15:56:16 by rastie           ###   ########.fr        #
+#    Updated: 2024/01/04 15:27:22 by rastie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook 
+NAME = ex00 
 
-SOURCE = Contact.cpp\
-	PhoneBook.cpp\
-	utils.cpp\
+SOURCE = main.cpp\
+		 Fixed.cpp\
+
 
 
 OBJECT = ${SOURCE:.cpp=.o}

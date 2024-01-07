@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 14:01:21 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/07 15:27:21 by rastie           ###   ########.fr       */
+/*   Created: 2024/01/03 21:33:21 by rastie            #+#    #+#             */
+/*   Updated: 2024/01/04 16:18:03 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
-# include <string>
-# include <iostream>
+#include <iostream>
 
-class Zombie
+class Fixed
 {
 private:
-    /* data */
-    std::string _name;
-
+    int _value;
+    static const int _nbits = 8;
 public:
-    Zombie(std::string name);
-    ~Zombie();
-    void    announce(void);
-    void    setName(std::string name);
-};
-void    randomChump(std::string name);
-Zombie *newZombie(std::string name);
+    Fixed(void);
+    Fixed(const Fixed &fixed);
+    Fixed(const int n);
+    Fixed(const float n);
+    Fixed & operator=(Fixed const & rhs);
+    ~Fixed();
 
-#endif
+    void setRawBits(int const var);
+    int getRawBits(void) const;
+    int toInt(void) const;
+    float toFloat(void) const;
+};
+std::ostream & operator<<(std::ostream & o, Fixed const & i);

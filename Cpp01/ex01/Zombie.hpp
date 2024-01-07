@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 14:04:28 by rastie            #+#    #+#             */
-/*   Updated: 2023/12/31 14:04:32 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:36:41 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ private:
     std::string _name;
 
 public:
-    Zombie(std::string name);
+    Zombie();
     ~Zombie();
-    void    annouce(void);
-    void    setName(std::string name)
+    void    announce(void);
+    void    setName(std::string name);
 };
 
-Zombie* zombieHorde( int N, std::string name )
+Zombie* zombieHorde( int N, std::string name );
 #endif

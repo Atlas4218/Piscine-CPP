@@ -20,6 +20,7 @@ int main(int ac, char **av)
     std::string filename;
     std::string hay;
     std::string needle;
+    std::string replace;
     int pos;
     size_t lenght;
 
@@ -31,6 +32,14 @@ int main(int ac, char **av)
 
     filename = av[1];
     needle = av[2];
+    replace = av[3];
+    
+    if (replace.find(needle))
+    {
+    	std::cerr << "Risque de boucle infinie" << std::endl;
+    	return (3);
+    }
+    
     file.open(av[1], std::fstream::in);
     if (!file.is_open())
     {
@@ -55,8 +64,8 @@ int main(int ac, char **av)
         std::cerr << "Erreur de lecture" << std::endl;
         return (3);
     }
-
     file.close();
+
     hay = buff;
     pos = hay.find(needle);
     while ((size_t)pos != (size_t)std::string::npos)

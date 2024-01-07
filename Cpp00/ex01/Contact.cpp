@@ -6,12 +6,10 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:14:51 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/01 18:36:12 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/05 15:57:16 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
 #include "Contact.hpp"
 
 Contact::Contact()

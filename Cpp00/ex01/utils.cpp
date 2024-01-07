@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 14:01:18 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/07 16:32:44 by rastie           ###   ########.fr       */
+/*   Created: 2024/01/05 15:54:20 by rastie            #+#    #+#             */
+/*   Updated: 2024/01/05 18:50:55 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-Zombie::Zombie(void)
+#include "PhoneBook.hpp"
+#include <stdlib.h>
+void take_input(std::string &input)
 {
-	std::cout << "Zombie constructor called" << std::endl;
-}
-
-Zombie::~Zombie()
-{
-    	std::cout << "Zombie " << this->_name << " destructor called" << std::endl;
-}
-
-void Zombie::announce(void)
-{
-    std::cout << this->_name <<  ": BraiiiiiiinnnzzzZ..." << std::endl;
-
-}
-void Zombie::setName(std::string name)
-{
-	this->_name = name;
+    std::getline(std::cin, input);
+    if (std::cin.eof())
+    {
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        exit(1);
+    }
 }

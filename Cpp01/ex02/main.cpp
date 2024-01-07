@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 14:06:47 by rastie            #+#    #+#             */
-/*   Updated: 2023/12/31 14:06:48 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:52:46 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
     std::string &strREF = str;
 
     std::cout << &str << ": " << str << std::endl;
-    std::cout << stringPTR << ": " << *stringPTR << std::endl;
-    std::cout << &stringREF << ": " << stringREF << std::endl;
+    std::cout << strPTR << ": " << *strPTR << std::endl;
+    std::cout << &strREF << ": " << strREF << std::endl;
 
 }
