@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:43:10 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/05 18:37:53 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/08 15:33:44 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	PhoneBook::add_contact(void)
 
 void	PhoneBook::print_content(void)
 {
-	std::cout << "     Index|    Prenom|       Nom| Phone Num" << std::endl;
+	std::cout << "     Index|   F. Name|      Name| Phone Num" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		std::string fname = this->list[i].getFirstName();
@@ -90,7 +90,7 @@ void	PhoneBook::print_content(void)
 			lname.replace(9, 1, ".");
 		}
 		std::string num = this->list[i].getPhoneNumber();
-		std::cout.setf(std::ios_base::right);
+		// std::cout.setf(std::ios_base::right); //a droite de base
 		std::cout << std::setfill(' ');
 		std::cout << std::setw(10) << i + 1 << "|"
 				  << std::setw(10) << fname << "|"
@@ -101,11 +101,11 @@ void	PhoneBook::print_content(void)
 
 void	PhoneBook::print_contact(int index)
 {
-	std::cout << this->list[index].getFirstName() << std::endl;
-	std::cout << this->list[index].getLastName() << std::endl;
-	std::cout << this->list[index].getNickname() << std::endl;
-	std::cout << this->list[index].getPhoneNumber() << std::endl;
-	std::cout << this->list[index].getSecret() << std::endl;
+	std::cout << "First name :" << this->list[index].getFirstName() << std::endl;
+	std::cout << "Last name :" << this->list[index].getLastName() << std::endl;
+	std::cout << "Nickname :" << this->list[index].getNickname() << std::endl;
+	std::cout << "Phone Number :" << this->list[index].getPhoneNumber() << std::endl;
+	std::cout << "Secret :" << this->list[index].getSecret() << std::endl;
 }
 void	PhoneBook::search(void)
 {
