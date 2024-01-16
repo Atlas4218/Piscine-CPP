@@ -68,66 +68,7 @@ float Fixed::toFloat(void) const
 
 std::ostream &operator<<(std::ostream &o, Fixed const &i)
 {
+    // TODO: insert return statement here
     o << i.toFloat();
     return (o);
-}
-
-bool Fixed::operator<(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (this->_value < rhs.getRawBits())
-}
-
-bool Fixed::operator>(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (this->_value > rhs.getRawBits())
-}
-
-bool Fixed::operator<=(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (this->_value <= rhs.getRawBits());
-}
-
-bool Fixed::operator>=(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (this->_value >= rhs.getRawBits());
-}
-
-bool Fixed::operator==(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (this->_value == rhs.getRawBits());
-}
-
-bool Fixed::operator!=(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (this->_value != rhs.getRawBits());
-}
-
-Fixed Fixed::operator+(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (Fixed(this->_value + rhs.getRawBits()));
-}
-
-Fixed Fixed::operator-(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (Fixed(this->_value - rhs.getRawBits()));
-}
-
-Fixed Fixed::operator*(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (Fixed(this->_value * rhs.getRawBits()));
-}
-
-Fixed Fixed::operator/(Fixed const &rhs)
-{
-    // TODO: insert return statement here
-    return (Fixed(this->_value / rhs.getRawBits()));
 }
