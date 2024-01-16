@@ -6,7 +6,7 @@
 #    By: rastie <rastie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 19:19:31 by rastie            #+#    #+#              #
-#    Updated: 2024/01/16 19:19:34 by rastie           ###   ########.fr        #
+#    Updated: 2024/01/16 20:23:44 by rastie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = ex00 
 
 SOURCE = main.cpp\
-		 Fixed.cpp\
+		 ClapTrap.cpp\
 
 
 
