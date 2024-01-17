@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 20:53:59 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/16 22:29:37 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/17 15:23:11 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 ClapTrap::ClapTrap(void)
 {
+	_hitP = 10;
+	_energyP = 10;
+	_attackP = 0;
 	std::cout << "Default constructor called for ClapTrap" << std::endl;
 }
 
@@ -24,8 +27,8 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitP(10), _energyP(10), _at
 
 ClapTrap::ClapTrap(ClapTrap const & orig)
 {
-	std::cout << "Copy constructor called for ClapTrap " << _name << std::endl;
 	*this = orig;
+	std::cout << "Copy constructor called for ClapTrap " << _name << std::endl;
 }
 ClapTrap::~ClapTrap(void)
 {
