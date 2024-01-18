@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rastie <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:24:08 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/17 21:23:23 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/18 19:28:33 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap()
+ScavTrap::ScavTrap(void): ClapTrap()
 {
 	_hitP = 100;
 	_energyP = 50;
@@ -20,13 +20,12 @@ ScavTrap::ScavTrap(): ClapTrap()
 	std::cout << "ScavTrap default constuctor called" << std::endl;
 }
 
-
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	_hitP = 100;
 	_energyP = 50;
 	_attackP = 20;
-	std::cout << "ScavTrap " << _name << " parameter constuctor called" << std::endl;
+	std::cout << "Parameter constructor called for ScavTrap " << _name << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& orig)
