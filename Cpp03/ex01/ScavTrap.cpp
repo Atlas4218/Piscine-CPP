@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:24:08 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/18 19:28:22 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/19 15:39:44 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 ScavTrap::ScavTrap(const ScavTrap& orig)
 {
 	*this = orig;
-	std::cout << "ScavTrap " << _name << " copy constuctor called" << std::endl;
+	std::cout << "Parameter constructor called for ScavTrap " << _name << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
