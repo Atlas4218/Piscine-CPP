@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rastie <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 18:22:25 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/19 18:47:30 by rastie           ###   ########.fr       */
+/*   Created: 2024/01/20 15:53:55 by rastie            #+#    #+#             */
+/*   Updated: 2024/01/20 16:57:25 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+# include <iostream>
+# include <string>
 
-class Cat: public Animal
+class Brain
 {
-public:
-	Cat(void);
-	Cat(const Cat & dog);
-	Cat & operator=(const Cat & rhs);
-	~Cat(void);
+	private:
+		std::string _ideas[100];
 
-	void makeSound(void);
+	public:
+		Brain(void);
+		Brain(const Brain & brain);
+		~Brain(void);
+		Brain & operator=(const Brain & rhs);
 };
+#endif
