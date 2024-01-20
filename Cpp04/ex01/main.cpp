@@ -6,7 +6,7 @@
 /*   By: rastie <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:11:23 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/20 17:06:09 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/20 21:48:09 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ int main()
 	const Animal* i = new Cat();
 
 	std::cout << std::endl;
-	Animal dogCopy;
-	dogCopy = *j;
+	Dog* dog = new Dog();
+	Dog dogCopy(*dog);
 	std::cout << std::endl;
 	delete j;//should not create a leak
 	delete i;
+	delete dog;
 
 	std::cout << std::endl;
 
