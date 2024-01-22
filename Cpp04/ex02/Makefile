@@ -6,15 +6,15 @@
 #    By: rastie <rastie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 19:19:31 by rastie            #+#    #+#              #
-#    Updated: 2024/01/22 11:50:17 by rastie           ###   ########.fr        #
+#    Updated: 2024/01/22 11:50:20 by rastie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = ex01
+NAME = ex02
 
 SOURCE = main.cpp\
-	 Animal.cpp\
+	 AAnimal.cpp\
 	 Brain.cpp\
 	 Cat.cpp\
 	 Dog.cpp\

@@ -6,21 +6,19 @@
 #    By: rastie <rastie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 19:19:31 by rastie            #+#    #+#              #
-#    Updated: 2024/01/22 11:50:17 by rastie           ###   ########.fr        #
+#    Updated: 2024/01/22 16:00:48 by rastie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = ex01
+NAME = ex02
 
 SOURCE = main.cpp\
-	 Animal.cpp\
-	 Brain.cpp\
-	 Cat.cpp\
-	 Dog.cpp\
-	 WrongAnimal.cpp\
-	 WrongCat.cpp\
-
+	 AMateria.cpp\
+	 MateriaSource.cpp\
+	 Character.cpp\
+	 Ice.cpp\
+	 Cure.cpp\
 
 
 OBJECT = ${SOURCE:.cpp=.o}

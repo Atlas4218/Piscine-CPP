@@ -6,7 +6,7 @@
 /*   By: rastie <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:48:13 by rastie            #+#    #+#             */
-/*   Updated: 2024/01/21 16:12:48 by rastie           ###   ########.fr       */
+/*   Updated: 2024/01/21 16:38:34 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Dog::Dog(void)
 	std::cout << "Dog Default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog & dog): Animal(dog)
+Dog::Dog(const Dog & dog): AAnimal(dog)
 {
 	_brain = new Brain(*dog._brain);
 	std::cout << "Dog Copy constructor called" << std::endl;
