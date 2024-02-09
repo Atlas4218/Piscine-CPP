@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:06:20 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/02 11:47:17 by rastie           ###   ########.fr       */
+/*   Updated: 2024/02/09 18:01:31 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,13 @@ void Bureaucrat::demote(void)
     _grade++;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     try
     {
         form.beSigned(*this);
     }
-    catch(const Form::GradeTooLowException &e )
+    catch(const AForm::GradeTooLowException &e)
     {
         std::cerr << *this << " couldn't sign " << form << " because " << e.what() << std::endl;
         return ;
@@ -79,6 +79,21 @@ void Bureaucrat::signForm(Form &form)
     std::cout << *this << " signed " << form << std::endl;
     
     
+}
+
+void Bureaucrat::executeForm(const AForm &form)
+{
+    try
+    {
+        form.excecute(*this);
+    }
+    catch(const std::exception &e)
+    {
+        std::cerr << *this << " couldn't excecute " << form << " because " << e.what() << std::endl;
+        return ;
+    }
+    std::cout << *this << " excecuted " << form << std::endl;
+
 }
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &i)

@@ -43,6 +43,10 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "iostream": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "optional": "cpp",
+        "fstream": "cpp",
+        "ranges": "cpp",
+        "span": "cpp"
     }
 }

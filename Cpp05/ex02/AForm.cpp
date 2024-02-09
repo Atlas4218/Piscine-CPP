@@ -1,6 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/07 14:56:36 by rastie            #+#    #+#             */
+/*   Updated: 2024/02/09 18:25:37 by rastie           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 
-AForm::AForm(const AForm &src): _name(src.getName()), _signed(src.isSigned()), _signGrade(src.getSignGrade()), _execGrade(src.getExecGrade())
+AForm::AForm(void): _signGrade(150), _execGrade(150)
+{
+}
+
+AForm::AForm(const AForm &src) : _name(src.getName()), _signed(src.isSigned()), _signGrade(src.getSignGrade()), _execGrade(src.getExecGrade())
 {
 }
 
@@ -51,18 +67,9 @@ void AForm::beSigned(Bureaucrat &maggot)
     }
     _signed = 1;
 }
-void AForm::excecute(const Bureaucrat &excecutor) const
+std::ostream &operator<<(std::ostream &o, const AForm &i)
 {
-    if (excecutor.getGrade() > _execGrade)
-        throw GradeTooLowException();
-    else if (!_signed)
-        throw  FormNonSigned();
-    else
-        std::cout << "Form " << _name << " executed" << std::endl;    
-}
-std::ostream &operator<<(std::ostream &o, AForm &i)
-{
-    o << "AForm " << i.getName() << ", sign grade " << i.getSignGrade() << ", exec grade" << i.getExecGrade();
+    o << "AForm " << i.getName() << ", sign grade " << i.getSignGrade() << ", exec grade " << i.getExecGrade();
     i.isSigned()? o << " is signed" : o << " is not signed";
     return (o);
 }

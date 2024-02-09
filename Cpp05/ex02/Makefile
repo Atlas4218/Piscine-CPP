@@ -6,16 +6,19 @@
 #    By: rastie <rastie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 19:19:31 by rastie            #+#    #+#              #
-#    Updated: 2024/02/02 17:46:09 by rastie           ###   ########.fr        #
+#    Updated: 2024/02/09 20:19:28 by rastie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = ex01
+NAME = ex02
 
 SOURCE = main.cpp\
 		Bureaucrat.cpp\
 		AForm.cpp\
+		PresidentialPardonForm.cpp\
+		RobotomyRequestForm.cpp\
+		ShrubberyCreationForm.cpp\
 		
 OBJECT = ${SOURCE:.cpp=.o}
 

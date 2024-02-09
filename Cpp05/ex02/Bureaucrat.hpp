@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:17:53 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/02 11:47:27 by rastie           ###   ########.fr       */
+/*   Updated: 2024/02/09 18:01:24 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define BUREAUCRAT_HPP
 # include <string>
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 class Bureaucrat
 {
 private:
@@ -38,8 +38,9 @@ public:
     void promote(void);
     void demote(void);
 
-    void signForm(Form &form);
-
+    void signForm(AForm &form);
+    void executeForm(const AForm &form);
+    
     class GradeTooHighException : public std::exception
     {
    
