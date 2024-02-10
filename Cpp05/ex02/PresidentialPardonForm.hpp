@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 12:06:14 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/09 20:07:48 by rastie           ###   ########.fr       */
+/*   Updated: 2024/02/10 02:02:43 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
     PresidentialPardonForm (void);
 public:
     PresidentialPardonForm(PresidentialPardonForm &form);
-    ~PresidentialPardonForm ();
+    virtual ~PresidentialPardonForm ();
     
     PresidentialPardonForm(std::string target);
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,20 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBERYCREATIONFORM_HPP
-# define SHRUBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 # include "AForm.hpp"
 
-class ShrubberyCreationForm: public AForm
+class RobotomyRequestForm: public AForm
 {
 private:
     const std::string _target;
-    ShrubberyCreationForm (void);
+    RobotomyRequestForm (void);
 public:
-    ShrubberyCreationForm(ShrubberyCreationForm &form);
-    virtual ~ShrubberyCreationForm ();
+    RobotomyRequestForm(RobotomyRequestForm &form);
+    virtual ~RobotomyRequestForm();
+    RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
     
-    ShrubberyCreationForm(std::string target);
+    RobotomyRequestForm(std::string target);
 
     std::string getTarget(void);
 

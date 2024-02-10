@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                         :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 12:06:14 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/09 15:43:15 by rastie           ###   ########.fr       */
+/*   Created: 2024/02/10 01:30:59 by rastie            #+#    #+#             */
+/*   Updated: 2024/02/10 01:49:58 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBERYCREATIONFORM_HPP
-# define SHRUBERYCREATIONFORM_HPP
-# include "AForm.hpp"
+#ifndef INTERN_HPP
+# define INTERN_HPP
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
-class ShrubberyCreationForm: public AForm
+class Intern
 {
 private:
-    const std::string _target;
-    ShrubberyCreationForm (void);
+
 public:
-    ShrubberyCreationForm(ShrubberyCreationForm &form);
-    virtual ~ShrubberyCreationForm ();
+    Intern(void);
+    Intern(Intern &intern);
+    ~Intern();
     
-    ShrubberyCreationForm(std::string target);
+    Intern &operator=(Intern &rhs);
 
-    std::string getTarget(void);
-
-    virtual void excecute(const Bureaucrat &executor) const;
-
-
+    AForm *makeForm(std::string name, std::string target);
 };
-
-
 #endif

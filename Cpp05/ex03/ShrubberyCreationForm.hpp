@@ -21,7 +21,7 @@ private:
     ShrubberyCreationForm (void);
 public:
     ShrubberyCreationForm(ShrubberyCreationForm &form);
-    virtual ~ShrubberyCreationForm ();
+    virtual ~ShrubberyCreationForm();
     
     ShrubberyCreationForm(std::string target);
 
