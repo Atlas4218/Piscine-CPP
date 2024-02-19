@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/19 21:35:40 by rastie            #+#    #+#             */
+/*   Updated: 2024/02/19 21:43:43 by rastie           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Base.hpp"
 
 Base *generate(void)
@@ -7,7 +19,7 @@ Base *generate(void)
         return (new A());
     else if (i == 1)
         return (new B());
-    return new C();
+    return (new C());
 }
 
 void identify(Base *p)
@@ -43,4 +55,8 @@ void identify(Base& p)
         static_cast<void>(c);
     }
     catch(std::exception){}
+}
+
+Base::~Base()
+{
 }

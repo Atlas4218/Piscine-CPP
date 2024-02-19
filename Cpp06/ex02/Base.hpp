@@ -6,10 +6,12 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:58:55 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/19 21:03:36 by rastie           ###   ########.fr       */
+/*   Updated: 2024/02/19 21:35:30 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BASE_HPP
+# define BASE_HPP
 #include <cmath>
 #include <iostream>
 class Base
@@ -27,3 +29,5 @@ Base *generate(void);
 
 void identify(Base *p);
 void identify(Base &p);
+
+#endif
