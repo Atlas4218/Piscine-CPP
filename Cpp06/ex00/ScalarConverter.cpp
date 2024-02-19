@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:01:06 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/14 19:05:31 by rastie           ###   ########.fr       */
+/*   Updated: 2024/02/19 16:57:15 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,22 @@ void toFloatDouble(std::string str)
 	if (errno || end == str.c_str())
 		std::cout << "impossible convertion\n";
 	else
-		std::cout << static_cast<float>(result) << "f" << std::endl;
+	{
+		std::cout << static_cast<float>(result);
+		if (result - static_cast<int>(result) == 0)
+			std::cout << ".0";
+		std::cout << "f" << std::endl;
+	}
 
 	std::cout << "double: ";
 	if (errno || end == str.c_str())
 		std::cout << "impossible convertion\n";
 	else
-		std::cout << result << std::endl;
+	{
+		std::cout << result;
+		if (result - static_cast<int>(result) == 0)
+			std::cout << ".0" << std::endl;
+	}
 }
 void ScalarConverter::convert(std::string litteral)
 {
