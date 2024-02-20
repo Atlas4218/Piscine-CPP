@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:41:47 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/09 20:14:08 by rastie           ###   ########.fr       */
+/*   Updated: 2024/02/20 18:31:31 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,9 @@ void ShrubberyCreationForm::excecute(const Bureaucrat &executor) const
     }
     filename = _target;
     filename.append("_shrubbery");
-    try
-    {
-        file.open(filename.c_str(),  std::fstream::out);
-    }
-    catch(const std::exception& e)
-    {
-        throw e;
-        return ;
-    }
+    file.open(filename.c_str(),  std::fstream::out);
+    if (!file.is_open())
+        throw std::exception();
     
     file << "       _-_" << std::endl;
     file << "    /~~   ~~\\" << std::endl;

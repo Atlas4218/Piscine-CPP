@@ -6,14 +6,15 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:58:55 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/19 21:35:30 by rastie           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:42:35 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BASE_HPP
 # define BASE_HPP
-#include <cmath>
-#include <iostream>
+# include <cmath>
+# include <ctime>
+# include <iostream>
 class Base
 {
 private:

@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:17:30 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/19 21:41:10 by rastie           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:42:18 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int main(void)
 {
+    srand(std::time(0));
+
     Base*   a = generate();
     Base*   b = generate();
     Base*   c = generate();
