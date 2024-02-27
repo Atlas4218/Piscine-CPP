@@ -1,9 +1,10 @@
-template<typename A, typename F>
-void iter(A *array, int lenght, F (*function)(A element))
+#include <iostream>
+#include <string>
+
+template <typename A>
+void iter(A *array, int lenght, void (*function)(A const &element))
 {
-    while (*array)
-    {
-        function(*array++);
-    }
+    for (int i = 0; i < lenght; i++)
+        function(array[i]);
     
 }
