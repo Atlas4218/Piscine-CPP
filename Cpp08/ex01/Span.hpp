@@ -1,16 +1,20 @@
+#include <vector>
+#include <stdexcept>
+#include <algorithm>
 class Span
 {
 private:
-    /* data */
+    std::vector<int> vector;
 public:
-    Span(/* args */);
+    Span(void);
+    Span(Span &array);
+    Span &operator=(Span &rhs);
     ~Span();
+
+    Span(unsigned int size);
+
+    void addNumber(int i);
+
+    int shortestSpan();
+    int longestSpan();
 };
-
-Span::Span(/* args */)
-{
-}
-
-Span::~Span()
-{
-}
