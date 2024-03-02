@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 18:10:23 by rastie            #+#    #+#             */
-/*   Updated: 2024/02/27 18:10:24 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/02 18:09:11 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ private:
     T *_element;
     unsigned int _size;
 public:
-    Array(void): _element(0) {};
+    Array(void): _element(new T()) {};
     Array(unsigned int n): _size(n) {_element = new T [n];}
     Array<T> &operator=(Array<T> &rhs) {if (_element)
                                             delete[] _element;

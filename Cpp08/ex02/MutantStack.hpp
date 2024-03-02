@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:02:21 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/02 17:27:18 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/02 18:50:55 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ public:
     MutantStack(void) {}
     MutantStack(const MutantStack &stack) {*this = rhs;}
     ~MutantStack() {}
-    MutantStack &operator=(const MutantStack &rhs) {
+    MutantStack &operator=(const MutantStack &rhs)
+    {
         std::stack<T, Container>::operator=(rhs);
         return *this;
     }
