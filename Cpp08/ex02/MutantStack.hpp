@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:02:21 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/02 18:50:55 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/02 18:53:46 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ public:
         return *this;
     }
     typedef typename Container::iterator iterator;
-    iterator begin() {return this->c.begin()}
-    iterator end() {return this->c.end()}
+    iterator begin() {return this->c.begin();}
+    iterator end() {return this->c.end();}
 };
