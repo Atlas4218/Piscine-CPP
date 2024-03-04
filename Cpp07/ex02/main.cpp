@@ -1,19 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 18:10:26 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/04 16:30:53 by rastie           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <cstdlib>
-#include <ctime>
 #include <iostream>
 #include "Array.hpp"
+#include <cstdlib>
+#include <ctime>
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -29,8 +17,9 @@ int main(int, char**)
     }
     //SCOPE
     {
-        Array<int> tmp = numbers;
+        Array<int> tmp = numbers; // /_\ == Array<int>(numbers), appelle le contructeur par copie
         Array<int> test(tmp);
+        test = numbers;
     }
 
     for (int i = 0; i < MAX_VAL; i++)
