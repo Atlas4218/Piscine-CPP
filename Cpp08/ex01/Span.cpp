@@ -20,14 +20,13 @@ Span::~Span()
 {
 }
 
-Span::Span(unsigned int size)
+Span::Span(unsigned int size): _size(size)
 {
-    list = std::list<int>(size);
 }
 
 void Span::addNumber(int i)
 {
-    if (list.size() == list.max_size())
+    if (list.size() == _size)
         throw std::out_of_range("Span::addNumber(int i): not enough space to add number");
     list.push_back(i);
 }

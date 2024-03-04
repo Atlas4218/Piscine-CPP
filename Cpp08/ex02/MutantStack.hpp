@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:02:21 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/02 18:53:46 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/04 15:28:51 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 #include <iostream>
 
 
-template<typename T, class Container = std::deque<T>>
+template< typename T, class Container = std::deque<T> >
 class MutantStack: public std::stack<T, Container>
 {
 private:
     /* data */
 public:
     MutantStack(void) {}
-    MutantStack(const MutantStack &stack) {*this = rhs;}
+    MutantStack(const MutantStack &stack) {*this = stack;}
     ~MutantStack() {}
     MutantStack &operator=(const MutantStack &rhs)
     {

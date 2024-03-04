@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 16:38:03 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/02 17:22:52 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/04 15:29:45 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,15 @@ int main()
     //[...]
     mlist.push_back(0);
 
-    std::list<int>::iterator it = mlist.begin();
-    std::list<int>::iterator ite = mlist.end();
-    ++it;
-    --it;
+    std::list<int>::iterator itl = mlist.begin();
+    std::list<int>::iterator itel = mlist.end();
+    ++itl;
+    --itl;
 
-    while (it != ite)
+    while (itl != itel)
     {
-        std::cout << *it << std::endl;
-        ++it;
+        std::cout << *itl << std::endl;
+        ++itl;
     }
     return 0;
 }

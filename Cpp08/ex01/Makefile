@@ -6,14 +6,15 @@
 #    By: rastie <rastie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 19:19:31 by rastie            #+#    #+#              #
-#    Updated: 2024/02/27 18:08:36 by rastie           ###   ########.fr        #
+#    Updated: 2024/03/04 15:25:34 by rastie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = ex00
+NAME = ex01
 
 SOURCE = main.cpp\
+		Span.cpp\
 		
 OBJECT = ${SOURCE:.cpp=.o}
 

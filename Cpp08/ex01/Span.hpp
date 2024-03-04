@@ -5,6 +5,7 @@
 class Span
 {
 private:
+    unsigned int _size;
     std::list<int> list;
 public:
     Span(void);
@@ -25,7 +26,7 @@ public:
 template <typename T>
 inline void Span::addNumber(T iterator)
 {
-    if (iterator.size() + list.size() > list.max_size())
+    if (iterator.size() + list.size() > _size)
         throw std::out_of_range("Span::addNumber(T iterator): not enough space to add number(s)");
-    list.push_back(i);
+    list.push_back(iterator);
 }
