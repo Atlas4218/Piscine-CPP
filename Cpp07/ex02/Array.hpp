@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 18:10:23 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/02 18:09:11 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/04 16:39:53 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ private:
 public:
     Array(void): _element(new T()) {};
     Array(unsigned int n): _size(n) {_element = new T [n];}
-    Array<T> &operator=(Array<T> &rhs) {if (_element)
-                                            delete[] _element;
-                                        _element = new T[rhs._size];
-                                        for (unsigned int i = 0; i < rhs._size; i++)
-                                            _element[i] = rhs._element[i];
-                                        return (*this);}
+    Array<T> &operator=(Array<T> &rhs) {
+        _element = new T[rhs._size];
+        for (unsigned int i = 0; i < rhs._size; i++)
+            _element[i] = rhs._element[i];
+        _size = rhs._size;
+        return (*this);}
     Array(Array<T> &array) {*this = array;}
     ~Array() {delete[] _element;}
     T& operator[](std::size_t idx) {if(idx < 0 || idx >= _size)
