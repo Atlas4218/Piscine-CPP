@@ -1,8 +1,6 @@
 #include "Span.hpp"
 
-Span::Span(void)
-{
-}
+Span::Span(void){}
 
 Span::Span(const Span &array)
 {

@@ -5,11 +5,21 @@
 #include <vector>
 #include <iostream>
 
-template<typename T>
-void easyfind(T container, int needle)
+
+class NotFound: public std::exception {
+
+	public:
+		const char *what() const throw() {return "Not found";}
+};
+
+template < template < typename, typename > class T>
+typename T<int, std::allocator<int> >::iterator
+    easyfind(T<int, std::allocator<int> > &container, int needle)
 {
-    if (std::find(container.begin(), container.end(), needle) != container.end())
-        std::cout << "Found\n";
-    else
-        std::cout << "Not Found\n";
+    typename T<int, std::allocator<int> >::iterator pos;
+
+    pos = std::find(container.begin(), container.end(), needle);
+    if (pos == container.end())
+        throw NotFound();
+    return pos;
 }
