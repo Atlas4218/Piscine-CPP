@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/05 18:59:48 by rastie            #+#    #+#             */
+/*   Updated: 2024/03/05 19:00:04 by rastie           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <list>
 #include <stdexcept>
 #include <algorithm>
 #include <iostream>
+
 class Span
 {
 private:
@@ -15,9 +28,9 @@ public:
 
     Span(unsigned int size);
 
-    void addNumber(int i);
     template<typename T>
     void addNumber(T iterator);
+    void addNumber(int i);
 
     int shortestSpan();
     int longestSpan();
