@@ -6,20 +6,22 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:59:48 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/05 19:00:04 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/07 15:50:58 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <list>
+#include <vector>
 #include <stdexcept>
 #include <algorithm>
+#include <cmath>
+#include <climits>
 #include <iostream>
 
 class Span
 {
 private:
     unsigned int _size;
-    std::list<int> list;
+    std::vector<int> vector;
 public:
     Span(void);
     Span(const Span &array);
@@ -39,7 +41,7 @@ public:
 template <typename T>
 inline void Span::addNumber(T iterator)
 {
-    if (iterator.size() + list.size() > _size)
+    if (iterator.size() + vector.size() > _size)
         throw std::out_of_range("Span::addNumber(T iterator): not enough space to add number(s)");
-    list.push_back(iterator);
+    vector.push_back(iterator);
 }
