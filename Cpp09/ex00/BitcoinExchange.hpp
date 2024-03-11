@@ -26,6 +26,7 @@ public:
 
     void exchange(std::string filename);
 
+        void setDatabaseFilename(std::string filename);
     class BadDateFormat: public std::exception
     {
     public:
@@ -41,5 +42,20 @@ public:
     {
     public:
             virtual const char* what() const throw() {return "Bad monetary Value";}
+    };
+    class NegativeNumber: public std::exception
+    {
+    public:
+            virtual const char* what() const throw() {return "Not a positive number";}
+    };
+    class NumberTooLarge: public std::exception
+    {
+    public:
+            virtual const char* what() const throw() {return "Too large a number";}
+    };
+    class TooEarlyDate: public std::exception
+    {
+    public:
+            virtual const char* what() const throw() {return "Database doesn't go that far back in time";}
     };
 };
