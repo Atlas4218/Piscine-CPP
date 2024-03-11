@@ -6,7 +6,7 @@
 #    By: rastie <rastie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 19:19:31 by rastie            #+#    #+#              #
-#    Updated: 2024/03/08 17:19:04 by rastie           ###   ########.fr        #
+#    Updated: 2024/03/11 20:48:48 by rastie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SOURCE = main.cpp\
 		
 OBJECT = ${SOURCE:.cpp=.o}
 
-CXXFLAGS = -g3 -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g3
 RM = rm -f
 CXX = c++
 

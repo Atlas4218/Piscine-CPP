@@ -31,22 +31,22 @@ void checkDate(std::string date)
     if (!checkDateValidity(date))
         throw BitcoinExchange::InvalidDate();
 }
-void removeSpace(std::string str)
+void removeSpace(std::string &str)
 {
-    for (int i = 0; i < str.size(); i++)
+    for (size_t i = 0; i < str.size(); i++)
         if (isspace(str[i]))
             str.erase(i--, 1);
 }
 
 BitcoinExchange::BitcoinExchange(void): _filename("data.csv")
 {
-    this->initDataBase();
+    //this->initDataBase();
 }
 
 BitcoinExchange::BitcoinExchange(std::string fileData)
 {
     _filename = fileData;
-    this->initDataBase();
+    //this->initDataBase();
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &bitcoinExchange)
@@ -56,11 +56,11 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &bitcoinExchange)
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs)
 {
-    if (this != &rhs)
-    {
-        _data = rhs._data;
+    if (this == &rhs)
         return (*this);
-    }
+    _data = rhs._data;
+    _filename = rhs._filename;
+    return (*this);
 }
 
 BitcoinExchange::~BitcoinExchange()
@@ -73,11 +73,10 @@ BitcoinExchange::~BitcoinExchange()
 
 void BitcoinExchange::initDataBase(void)
 {
-    std::map<std::string, float> _data;
     std::string firstline;
     char *end = 0;
 
-    _fileDatabase.open(_filename);
+    _fileDatabase.open(_filename.c_str());
 
     if (!_fileDatabase.is_open())
         throw std::ios_base::failure("Couldn't open the database file");
@@ -90,8 +89,8 @@ void BitcoinExchange::initDataBase(void)
         if (delim == std::string::npos)
         {
             std::cerr << "Bad input => " << line << "\n";
+            return ;
         }
-        std::string date = line.substr(0, delim);
         std::string date = line.substr(0, delim);
         float value = static_cast<float>(std::strtod(line.substr(delim + 1).c_str(), &end));
         checkDate(date);
@@ -101,21 +100,21 @@ void BitcoinExchange::initDataBase(void)
     }
     _fileDatabase.clear();
 	_fileDatabase.seekg(0);
+    _fileDatabase.close();
 }
 
 void BitcoinExchange::exchange(std::string filename)
 {
-    std::map<std::string, float> _data;
     std::string firstline;
     char *end = 0;
 
-    _fileEntry.open(filename);
+    _fileEntry.open(filename.c_str());
 
-    if (!_fileDatabase.is_open())
+    if (!_fileEntry.is_open())
         throw std::ios_base::failure("Couldn't open the entry file");
     
-    std::getline(_fileDatabase, firstline); //first line
-    for (std::string line; std::getline(_fileDatabase, line);)
+    std::getline(_fileEntry, firstline); //first line
+    for (std::string line; std::getline(_fileEntry, line);)
     {
         removeSpace(line);
         size_t delim = line.rfind('|');
@@ -128,27 +127,12 @@ void BitcoinExchange::exchange(std::string filename)
         float ammount = static_cast<float>(std::strtod(line.substr(delim + 1).c_str(), &end));
         try
         {
+            std::string key(date);
             checkDate(date);
-        }
-        catch(const std::exception& e)
-        {
-            std::cerr << "Error: " << e.what() << " => " << date << '\n';
-            continue ;
-        }
-        try
-        {
             std::map<std::string, float>::iterator it = _data.upper_bound(date);
             if (it == _data.begin())
-                throw TooEarlyDate();
-            date = (--it)->first;
-        }
-        catch(const std::exception& e)
-        {
-            std::cerr << "Error: " << e.what() << '\n';
-        }
-        
-        try
-        {
+               throw TooEarlyDate();
+            key = (--it)->first;
             if (ammount < 0)
                 throw NegativeNumber();
             if (ammount > 1000)
