@@ -6,15 +6,15 @@
 #    By: rastie <rastie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 19:19:31 by rastie            #+#    #+#              #
-#    Updated: 2024/03/12 15:58:26 by rastie           ###   ########.fr        #
+#    Updated: 2024/03/12 18:02:29 by rastie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = btc
+NAME = RPN
 
 SOURCE = main.cpp\
-		BitcoinExchange.cpp\
+		RPN.cpp\
 		
 OBJECT = ${SOURCE:.cpp=.o}
 
