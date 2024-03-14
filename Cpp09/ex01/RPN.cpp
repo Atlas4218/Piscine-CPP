@@ -4,6 +4,10 @@
 
 bool isAllDigit(const char *str)
 {
+    if (*str == '-' || *str == '+')
+        str++;
+    if (!*str)
+        return (false);
     while (*str)
         if (!isdigit(*(str++)))
             return (false);
@@ -14,7 +18,7 @@ void calculationRNP(char *rpn)
     std::istringstream stream(rpn);
     int operand1, operand2;
     char *end = 0;
-    std::stack<int> stack;
+    std::stack<int, std::vector<int> > stack;
 
     for (std::string arg; std::getline(stream, arg, ' ');)
     {

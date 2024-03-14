@@ -10,3 +10,8 @@ Pour ceux qui préfèrent la pratique: on va dérouler l'algo sur l'instance [7,
 .. Insérer: d'abord l'élément appairé au plus petit élément, 9, ici c'est 8*, j'ai la liste [8, 9]. Ensuite, j'insère l'élément apairré à 11, ici le 2 dans la liste [8, 9, 10] (en fait, dans la liste [8, 9, (10, 6)]...) , puis l'élément apairré à 10 (le 6) dans la liste [2, 8, 9]. Je retourne la liste [2, 6, 8, 9, 10, 11]
 . Insérer: d'abord l'élément appairé à 2, puis celui appairé à  8, suivi de celui appairé à 6, ensuite celui appairé à  10, suivi de celui à 9, puis à 11 (suivant Jacobsthal...) et j'ai la liste [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] à renvoyer. 
 Ma liste est triée.
+
+
+* Attention, abus de notation incoming: plutôt que d'utiliser une paire, j'ai utiliser le plus grand élément de la paire. Mais c'est bien d'une paire qu'il s'agit : 8 represente la paire (7, 8); 9 c'est (5, 9)...
+** J'ai noté 9, mais en fait, 9 c'est (8, 9)... Mais (8, 9) de l'étape précédente: donc 9 c'est  ((7,8), (5,9)) (abus de notation récursif !)
+*** Et 11 ici, c'est (9, 11)... Soit ((8,9), (2,11))... Ou (((7,8),(5,9)), ((1,2),(0,11)))
