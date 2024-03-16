@@ -5,9 +5,9 @@ void f(std::list<T> &tab)
 {
     std::list<int> test = {5,8,4,6,7,9,1,2,3,0};
 
-
+    /*make pairs*/
     std::list<std::pair<T, T> > recur;
-    T remain = 0;
+    T *remain = 0;
     if (tab.size() == 1)
         return ;
     while (tab.size())
@@ -15,7 +15,7 @@ void f(std::list<T> &tab)
         std::list<int>::iterator next = tab.begin();
         std::advance(next, 1);
         if (next == tab.end())
-            remain = tab.back();
+            remain = &(tab.back());
         else if (tab.front() > *next)
         {
             recur.push_back(std::make_pair(tab.front(), *next));
@@ -28,44 +28,60 @@ void f(std::list<T> &tab)
         }
         tab.pop_front();
     }
-    f(recur);
-    std::list<std::pair<T, T> >::iterator it = recur.begin()
-    binary_merge(tab, (*it).second);
-    binary_merge(tab, (*it).first);
-    std::advance(it, 1);
-    //add rest of list
-    int i = 0;
-    int n = 1;
 
-    while(it != recur.end())
+    /*recur call*/
+    f(recur);
+
+    /*merge*/
+    std::list<std::pair<T, T> >::iterator it = recur.begin()
+    tab.push_back((*it).second);    //add first element
+    tab.push_back((*it).first);
+    std::advance(it, 1);
+    if(remain)  //add floating element that wasn't put in a pair
     {
-        i = 2^n - i;
-        std::list<std::pair<T, T> >::iterator first_group = it;
-        std::advance(it, std::min(i, std::distance(it, recur.end()));
-        while (it != first_group)
-        {
-            binary_merge(tab, (*it).second);
-            binary_merge(tab, (*it).first);
-            std::advance(it, -1);
-        }
-        std::advance(it, std::min(i, std::distance(it, recur.end()));
+        int pos = binarySearch(tab.begin(), tab.end(), *remain);
+        tab.insert(pos, *remain);
     }
 
-    if(remain)
-        binary_merge(tab, remain);
-
-
-       0 1 2 4 8 16 32
-       0 1 1 3 5 11 21
-        1 0 2 2 6  10
+    /*initialisation jaboc numbers*/
+    int i = 1;
+    int n = 2;
+    int j;
+    while(it != recur.end())
+    {
+        j = i;
+        i = 2^(n++) - i;
+        j = i - j;
+        std::list<std::pair<T, T> >::iterator preced_group = it;
+        std::advance(it, std::min(j - 1, std::distance(it, recur.end()));   //getting the end of a group
+        /*adding keys of the group*/
+        for (int i = 1; preced_group[i] <= it; i++)
+            tab.push_back(preced_group[i].first);
+        while (it != preced_group)
+        {
+            std::list<T>::iterator max = binarySearch(tab.begin(), tab.end(), (*it).first); //searching keys of the group (> element we're trying to insert)
+            std::list<T>::iterator pos = binarySearch(tab.begin(), max, (*it).second);  //getting the pos to insert the element
+            tab.insert(pos, (*it).second); 
+            std::advance(it, -1);   //going from the end of the group to the begining
+        }
+        std::advance(it, std::min(j + 1, std::distance(it, recur.end())));  //seting the iterator to the begining of the next group
+    }
 }
 
+template <typename T>
+typename std::list<T>::iterator binarySearch(typename std::list<T>::iterator low,
+                                             typename std::list<T>::iterator high,
+                                             T &value)
+{  
+    if (std::distance(first, last) < 2)
+	{
+		if (val < *first)
+			return first;
+		return last;
+	}
+    typename std::list<T>::iterator mid = low + (std::distance(low, high) / 2);
+    if (*mid < value)
+        return binarySearch(mid, high, value);
+    return binarySearch(low, mid, value);
+}
 
-7 8 5 9 11 0 2 1 10 3 4 6
-.(8 7)(9 5)(11 0)(2 1)(10 3)(6 4)
-..((9 5)(8 7))((11 0)(2 1))       ((10 3)(6 4))[a recuperer plus tard]
-...(((11 0)(2 1))((9 5)(8 7)))
-[](((11 0)(2 1))((9 5)(8 7))) ((10 3)(6 4))
-...[((9 5)(8 7))((10 3)(6 4))(((11 0)(2 1))]
-..[](((9 5)(8 7))((10 3)(6 4))(((11 0)(2 1)))
-..[(8 7)(9 5)]
