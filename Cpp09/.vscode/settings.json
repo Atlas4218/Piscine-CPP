@@ -52,6 +52,8 @@
         "typeinfo": "cpp",
         "list": "cpp",
         "stack": "cpp",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "complex": "cpp",
+        "ctime": "cpp"
     }
 }

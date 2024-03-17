@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/16 19:51:10 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/16 23:57:35 by rastie           ###   ########.fr       */
+/*   Created: 2024/03/16 20:57:15 by rastie            #+#    #+#             */
+/*   Updated: 2024/03/16 22:38:09 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <stack>
-#include <list>
-#include <cstring>
-#include <iostream>
-#include <cstdlib>
-#include <sstream>
-#include <string>
+#include "PmergeMe.hpp"
 
-void calculationRNP(char *rpn);
+int main(int ac, char **av)
+{
+    if (ac <= 1){std::cout << "Error\n"; return (1);}
+    
+    PmergeMe merge(++av);
+    merge.sort();
+}

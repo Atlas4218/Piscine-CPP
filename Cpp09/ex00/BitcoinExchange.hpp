@@ -6,10 +6,11 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:02:05 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/12 16:02:06 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/16 20:48:53 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <map>
 #include <string>
 #include <fstream>

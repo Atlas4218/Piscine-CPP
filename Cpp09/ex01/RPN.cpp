@@ -18,7 +18,7 @@ void calculationRNP(char *rpn)
     std::istringstream stream(rpn);
     int operand1, operand2;
     char *end = 0;
-    std::stack<int, std::vector<int> > stack;
+    std::stack<int, std::list<int> > stack;
 
     for (std::string arg; std::getline(stream, arg, ' ');)
     {
