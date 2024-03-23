@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 19:52:16 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/17 01:42:21 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/23 23:43:16 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void PmergeMe::sortFordJonhson(std::deque<T> &tab)
     while(it != recur.end())
     {
         j = i;
-        i = 2^(n++) - i;
+        i = (2^(n++)) - i;
         j = i - j;
         typename std::deque<std::pair<T, T> >::iterator preced_group = it;    //getting the end of the previous group
         int rest_size = std::distance(it, recur.end());
@@ -139,8 +139,11 @@ void PmergeMe::sortFordJonhson(std::vector<T> &tab)
     /*make pairs*/
     std::vector<std::pair<T, T> > recur;
     T remain = 0;
-    if (tab.size() <= 1)    //recur break case, no pair can be made
-        return ;
+    if (tab.size() % 2)    //recur break case, no pair can be made
+    {
+        remain = tab.back();
+        tab.pop_back();
+    }
     while (tab.size())
     {
         typename std::vector<T>::iterator next = tab.begin();
@@ -154,55 +157,19 @@ void PmergeMe::sortFordJonhson(std::vector<T> &tab)
         else if (tab.front() > *next)
         {
             recur.push_back(std::make_pair(tab.front(), *next));
-            tab.erase(next);
+            tab.pop();
         }
         else
         {
             recur.push_back(std::make_pair(*next, tab.front()));
-            tab.erase(next);
+            tab.pop();
         }
         tab.erase(tab.begin());
     }
 
     /*recur call*/
     //sortFordJonhson(recur);
-    std::vector<T> result;
-    tab = result;
-    typename std::vector<std::pair<T, T> >::iterator it = recur.begin();
-    tab.push_back((*it).second);    //add first element
-    tab.push_back((*it).first);
-    if(remain)  //add floating element that wasn't put in a pair
-    {
-        typename std::vector<T>::iterator pos = binarySearch(tab.begin(), tab.end(), remain);
-        tab.insert(pos, remain);
-    }
-
-    int i = 1;
-    int n = 2;
-    int j;
-    while(it != recur.end() && recur.size() > 1)
-    {
-        j = i;
-        i = 2^(n++) - i;
-        j = i - j;
-        typename std::vector<std::pair<T, T> >::iterator preced_group = it;    //getting the end of the previous group
-        int size_rest = std::distance(it + 1, recur.end());
-        std::advance(it, std::min(size_rest, j));   //getting the end of a group
-        typename std::vector<std::pair<T, T> >::iterator tmp = preced_group;
-        while(tmp != it)
-        {
-            tab.push_back((*preced_group).first);
-            std::advance(tmp, 1);
-        }
-        while (it != preced_group)
-        {
-            typename std::vector<T>::iterator max = binarySearch(tab.begin(), tab.end(), (*it).first); //searching keys of the group (> element we're trying to insert)
-            typename std::vector<T>::iterator pos = binarySearch(tab.begin(), max, (*it).second);  //getting the pos to insert the element
-            tab.insert(pos, (*it).second); 
-            std::advance(it, -1);   //going from the end of the group to the begining
-        }
-        size_rest = std::distance(it, recur.end());
-        std::advance(it, size_rest);  //resetting the iterator to the end of the group
+   
         
     }
     
@@ -283,3 +250,43 @@ void PmergeMe::sort()
         std::cout << "Time to process a range of " << _deque.size() << " elements with std::deque: " << time << "us\n";
     }
 }
+
+
+
+ std::vector<T> result;
+    tab = result;
+    typename std::vector<std::pair<T, T> >::iterator it = recur.begin();
+    tab.push_back((*it).second);    //add first element
+    tab.push_back((*it).first);
+    if(remain)  //add floating element that wasn't put in a pair
+    {
+        typename std::vector<T>::iterator pos = binarySearch(tab.begin(), tab.end(), remain);
+        tab.insert(pos, remain);
+    }
+
+    int i = 1;
+    int n = 2;
+    int j;
+    while(it != recur.end() && recur.size() > 1)
+    {
+        j = i;
+        i = (2^(n++)) - i;
+        j = i - j;
+        typename std::vector<std::pair<T, T> >::iterator preced_group = it;    //getting the end of the previous group
+        int size_rest = std::distance(it + 1, recur.end());
+        std::advance(it, std::min(size_rest, j));   //getting the end of a group
+        typename std::vector<std::pair<T, T> >::iterator tmp = preced_group;
+        while(tmp != it)
+        {
+            tab.push_back((*preced_group).first);
+            std::advance(tmp, 1);
+        }
+        while (it != preced_group)
+        {
+            typename std::vector<T>::iterator max = binarySearch(tab.begin(), tab.end(), (*it).first); //searching keys of the group (> element we're trying to insert)
+            typename std::vector<T>::iterator pos = binarySearch(tab.begin(), max, (*it).second);  //getting the pos to insert the element
+            tab.insert(pos, (*it).second); 
+            std::advance(it, -1);   //going from the end of the group to the begining
+        }
+        size_rest = std::distance(it, recur.end());
+        std::advance(it, size_rest);  //resetting the iterator to the end of the group
