@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 19:52:16 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/23 23:43:16 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/24 01:49:57 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,46 +132,52 @@ typename std::deque<T>::iterator PmergeMe::binarySearch(typename std::deque<T>::
     return binarySearch(low, mid, value);
 }
 
+template <typename T>
+std::vector<std::pair<T, T> >generate_pair(std::vector<T> &tab)
+{
+    std::vector<std::pair<T, T> >result;
+    while (tab.size())
+    {
+        typename std::vector<T>::iterator next = tab.begin();
+        std::advance(next, 1);
+
+        if (tab.front() < *next)
+            std::swap(data.front, *next);
+        result.push_back(std::make_pair(tab.front(), *next));
+        tab.pop();       
+        tab.pop();
+    }
+
+    return (result);
+}
 /*using vector*/
 template <typename T>
 void PmergeMe::sortFordJonhson(std::vector<T> &tab)
 {
     /*make pairs*/
-    std::vector<std::pair<T, T> > recur;
     T remain = 0;
-    if (tab.size() % 2)    //recur break case, no pair can be made
+    if (tab.size() <= 1)
+        return ;
+    if (tab.size() % 2)
     {
         remain = tab.back();
         tab.pop_back();
     }
-    while (tab.size())
-    {
-        typename std::vector<T>::iterator next = tab.begin();
-        std::advance(next, 1);
-        if (next == tab.end())
-        {
-            remain = tab.back();
-            tab.pop_back();
-            break ;
-        }
-        else if (tab.front() > *next)
-        {
-            recur.push_back(std::make_pair(tab.front(), *next));
-            tab.pop();
-        }
-        else
-        {
-            recur.push_back(std::make_pair(*next, tab.front()));
-            tab.pop();
-        }
-        tab.erase(tab.begin());
-    }
+    std::vector<std::pair<T, T> > recur = generate_pair(tab);
+    tab.clear();
+    
 
     /*recur call*/
-    //sortFordJonhson(recur);
-   
-        
+    sortFordJonhson(recur);
+    
+    typename std::vector<std::pair<T, T> >::iterator it = recur.begin();
+    tab.push_back((*it).second);    //add first element
+
+    for (size_type i = 0; i < recur.size(); i++) {
+        tab.push_back(recur[i].first);
     }
+
+    
     
 }
 
@@ -255,9 +261,6 @@ void PmergeMe::sort()
 
  std::vector<T> result;
     tab = result;
-    typename std::vector<std::pair<T, T> >::iterator it = recur.begin();
-    tab.push_back((*it).second);    //add first element
-    tab.push_back((*it).first);
     if(remain)  //add floating element that wasn't put in a pair
     {
         typename std::vector<T>::iterator pos = binarySearch(tab.begin(), tab.end(), remain);
@@ -275,12 +278,6 @@ void PmergeMe::sort()
         typename std::vector<std::pair<T, T> >::iterator preced_group = it;    //getting the end of the previous group
         int size_rest = std::distance(it + 1, recur.end());
         std::advance(it, std::min(size_rest, j));   //getting the end of a group
-        typename std::vector<std::pair<T, T> >::iterator tmp = preced_group;
-        while(tmp != it)
-        {
-            tab.push_back((*preced_group).first);
-            std::advance(tmp, 1);
-        }
         while (it != preced_group)
         {
             typename std::vector<T>::iterator max = binarySearch(tab.begin(), tab.end(), (*it).first); //searching keys of the group (> element we're trying to insert)
