@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 20:57:15 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/16 22:38:09 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/24 23:58:28 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 int main(int ac, char **av)
 {
-    if (ac <= 1){std::cout << "Error\n"; return (1);}
+    if (ac < 2){std::cout << "Error\n"; return (1);}
     
-    PmergeMe merge(++av);
-    merge.sort();
+    try
+    {
+        PmergeMe pmerge(++av);
+        pmerge.sort();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }

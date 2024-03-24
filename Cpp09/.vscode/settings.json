@@ -54,6 +54,7 @@
         "stack": "cpp",
         "cstring": "cpp",
         "complex": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "cerrno": "cpp"
     }
 }

@@ -6,7 +6,7 @@
 /*   By: rastie <rastie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 19:51:43 by rastie            #+#    #+#             */
-/*   Updated: 2024/03/16 23:58:19 by rastie           ###   ########.fr       */
+/*   Updated: 2024/03/24 23:58:08 by rastie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <iostream>
 #include <ctime>
 #include <cerrno>
+#include <cmath>
+#include <sstream>
 
 
 class PmergeMe
